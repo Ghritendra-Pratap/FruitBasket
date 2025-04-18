@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from '../redux/slices/cartSlice'
 import axios from 'axios'
+import { serverUrl } from '../api/config'
 
 
 const Card = (fruit: any ) => {
@@ -13,7 +14,7 @@ const Card = (fruit: any ) => {
   const { user } = useSelector((state:any) => state.user)
   const addItemToCart = async(id:any)=>{
     try {
-        const response = await axios.post('http://localhost:5001/api/cart' , {
+  const response = await axios.post(`${serverUrl}/cart` , {
             userId: user.id,
             fruitId: id,
             quantity: 1
