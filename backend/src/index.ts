@@ -13,7 +13,10 @@ import cors from 'cors'
 const app = express();
 dotenv.config();
 app.use(express.json());
-app.use(cors())
+app.use(cors({
+    origin: 'https://fruit-basket-nlyz8dsnl-ghritendra-prataps-projects.vercel.app',
+    credentials: true 
+  }));
 const PORT = process.env.PORT || 5001
 
 console.log(process.env.RAZORPAY_KEY_ID)
