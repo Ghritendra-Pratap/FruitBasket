@@ -3,6 +3,7 @@ import Category from '../components/Category'
 import {  useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { serverUrl } from '../api/config'
 
 
 const MainPage = () => {
@@ -11,7 +12,7 @@ const MainPage = () => {
 
   const fetchCategories=async()=>{    
     try {
-        const response = await axios.get(`http://localhost:5001/api/categories`);
+        const response = await axios.get(`${serverUrl}/categories`);
         setCategories(response.data); 
     } catch (error) {
         console.log(error);
